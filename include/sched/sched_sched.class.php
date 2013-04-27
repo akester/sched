@@ -41,7 +41,7 @@
 				case 'index':
 					echo <<<EOT
 					<h1>Machine Schedule</h1>
-					<table border=1>
+					<table>
 						<tr class="heading">
 							<td class="machineColumn">Machines</td>
 							<td class="timeColumn">Time</td>
