@@ -12,10 +12,14 @@ function sched_jobFormSubmit() {
            success: function(data) {
                alert(data);
            },
-           error: function() {
-        	   alert('An error occured.')
-           }
+           error: function(xhr, status, error) {
+        	    alert("An error occured: " + xhr.responseText);
+        	    /* FIXME: stop clearing of form when there was an error */
+        	 }
          });
+    
+    /* Clear the form */
+    $('[name=jobForm]')[0].reset();
 
     return false;
 }
