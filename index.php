@@ -3,7 +3,7 @@
 	$auth = new phpAuthMySQL();
 	$auth->auth(true);
 	
-	require 'include/sched/sched.class.php';
+	require 'include/sched/sched_sched.class.php';
 	$ms = new sched_sched();
 ?>
 <html>
