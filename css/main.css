@@ -1,13 +1,22 @@
+body {
+    font-family: sans-serif;
+}
+
+table {
+    margin: 0px auto;
+}
+
 td.machineColumn {
-    
+    width: 100px;
 }
 
 td.timeColumn {
     width: 1000px;
 }
 
-tr.head {
-    
+tr.heading {
+    background-color: #CCCCCC;
+    font-weight: bold;
 }
 
 .jobBox {
