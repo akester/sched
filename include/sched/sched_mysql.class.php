@@ -24,7 +24,8 @@
 		}
 		
 		public function query($query) {
-			return $this->db->query($query);
+			$result = $this->db->query($query) or die ($this->db->error);
+			return $result;
 		}
 	}
 ?>
