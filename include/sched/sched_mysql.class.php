@@ -24,7 +24,11 @@
 		}
 		
 		public function query($query) {
-			$result = $this->db->query($query) or die ($this->db->error);
+			$result = $this->db->query($query);
+			if ($this->db->errno) {
+				http_response_code(500);
+				die($this->db->error);
+			}
 			return $result;
 		}
 	}
