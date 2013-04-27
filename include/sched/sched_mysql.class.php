@@ -1,10 +1,19 @@
 <?php
 	class sched_mysql {
-		private $dbhost = 'localhost';
-		private $dbname = 'sched';
-		private $dbuser = 'sched';
-		private $dbpass = 'password';
+		private $dbhost = '';
+		private $dbname = '';
+		private $dbuser = '';
+		private $dbpass = '';
 		
+		function __construct() {
+			#FIXME
+			$cfg = parse_ini_file('/home/andrew/Projects/wescon-sched/cfg/sched_mysql.ini');
+			$this->dbhost = $cfg['dbhost'];
+			$this->dbname = $cfg['dbname'];
+			$this->dbuser = $cfg['dbuser'];
+			$this->dbpass = $cfg['dbpass'];
+		}
+
 		public function connect() {
 			/* Create the connection to the database */
 			$this->db = @new mysqli($this->dbhost, $this->dbuser, $this->dbpass,
