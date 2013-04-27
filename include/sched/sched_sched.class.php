@@ -22,7 +22,7 @@
 			return $out;
 		}
 		
-		public function generateBody($get) {
+		public function generateBody($get, $post) {
 			if (!array_key_exists('p', $get))
 				$page = 'index';
 			else

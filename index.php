@@ -10,8 +10,21 @@
 	<head>
 		<title>Machine Scheduling</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.2.custom.css">
+		<script src="js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+				$( "#date" ).datepicker({ dateFormat: "yy-mm-dd" });
+			});
+		</script>
 	</head>
 	<body>
-		<?php $ms->generateBody($_GET);?>
+	<p>
+		<a href="?s=1">Today</a> | <a href="?s=7">This Week</a> | 
+		<a href="?s=30">This Month</a> | 
+		<a href="?p=newJob">Create a new job</a>
+	</p>
+		<?php $ms->generateBody($_GET, $_POST);?>
 	</body>
 </html>
