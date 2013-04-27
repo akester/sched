@@ -38,16 +38,16 @@
 					$status = 'ok';
 				
 				if ($pct + $totalPct > 100)
-					$pct = 95 - $totalPct;
+					$pct = 99 - $totalPct;
 				
-				if ($totalPct < 95) {
+				if ($totalPct < 99) {
 					if ($pct >= 10)	
 						echo '<span style="width: '.$pct.'%;" class="jobBox '
 								.$status.'">'.$j['jobId'].'</span>';
 					else
 						echo '<span style="width: '.$pct.'%;" class="jobBox '
-								.$status.'"> </span>';
-					$totalPct += $pct;
+								.$status.'">'.$j['jobId'].'</span>';
+				$totalPct += $pct;
 				}
 			}
 		}
