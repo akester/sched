@@ -1,11 +1,24 @@
-td.machine-column {
+td.machineColumn {
     
 }
 
-td.unit-column {
-    
+td.timeColumn {
+    width: 1000px;
 }
 
 tr.head {
     
+}
+
+.jobBox {
+    border: 1px solid;
+    position: static;
+    float: left;
+}
+
+.jobBox.ok {
+    background-color: #00FF00;
+}
+.jobBox.warn {
+    background-color: #FFFF00;
 }
