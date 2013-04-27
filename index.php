@@ -4,7 +4,7 @@
 	$auth->auth(true);
 	
 	require 'include/sched/sched.class.php';
-	$ms = new sched_Sched();
+	$ms = new sched_sched();
 ?>
 <html>
 	<head>

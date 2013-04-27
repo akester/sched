@@ -1,5 +1,5 @@
 <?php
-	class sched_Sched {
+	class sched_sched {
 		
 	}
 ?>
