@@ -52,7 +52,7 @@ EOT;
 						echo '<td>';
 						echo $m;
 						echo '</td><td>';
-						$mObj = new sched_machine('A1');
+						$mObj = new sched_machine($m);
 						$mObj->drawGrid($scale, $time);
 						echo '</td>';
 						echo '</tr>';
