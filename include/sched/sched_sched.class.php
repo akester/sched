@@ -14,7 +14,7 @@
 				throw new Exception('Could not load machines');
 			$out = array();
 			while ($row = $result->fetch_assoc()) {
-				if (!array_key_exists($row['class'], $out))
+				#if (!array_key_exists($row['class'], $out))
 					#FIXME
 					#$out[$row['class']] = array();
 				$out[] = $row['name'];
