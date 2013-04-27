@@ -4,6 +4,12 @@ body {
 
 table {
     margin: 0px auto;
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+td, tr {
+    border: 1px solid;
 }
 
 td.machineColumn {
