@@ -106,7 +106,7 @@ class phpAuth {
      * Text to display if the user logs out but fails to redirect.
      * @var string
      */
-    public $logout_text = 'You have been logged out. <a href="index.html">Return</a>';
+    public $logout_text = 'You have been logged out. <a href="index.php">Return</a>';
 
     /**
      * The wait time in seconds after a failed authentication.
@@ -268,7 +268,7 @@ class phpAuth {
      * are stored!
      * @var string
      */
-    private $realm = 'Test';
+    private $realm = 'Machine Scheduling';
 
     /**
      * Secret key used to encrypt/decrypt the stored hash values.
@@ -299,7 +299,7 @@ class phpAuth {
      * it would lock them out.)
      * @var boolean
      */
-    private $require_ip = FALSE;
+    private $require_ip = TRUE;
 
     /*     * ************************************************************************* *
      *                      END CONFIGURATION!
