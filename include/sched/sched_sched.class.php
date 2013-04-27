@@ -30,10 +30,10 @@
 			
 			/* Set the scale for everything */
 			$time = time();
-			if (!array_key_exists('s', $get))
-				$scale = $time + (60 * 60 * 24);
+			if (!array_key_exists('s', $get) || $get['s'] < 1)
+				$scale = $time + (60 * 60 * 24 * 7);
 			else
-				$scale = $get['s'];
+				$scale = $time + ($get['s'] * 60 * 60 * 24);
 			
 			/* This switch handles all of the different pages */
 			switch($page) {
