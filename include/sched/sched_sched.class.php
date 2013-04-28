@@ -50,7 +50,7 @@ EOT;
 					foreach ($this->getMachines() as $k=>$m) {
 						echo '<tr>';
 						echo '<td>';
-						echo $m;
+						echo '<a href="?p=machine&m='.$m.'">'.$m.'</a>';
 						echo '</td><td>';
 						$mObj = new sched_machine($m);
 						$mObj->drawGrid($scale, $time);
