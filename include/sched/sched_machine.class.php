@@ -29,7 +29,7 @@
 					$pct = 100;
 				
 				/* Calcuate the job status */
-				$complete = $previousCompletion + $j['hoursToGo'] + 3600;
+				$complete = $previousCompletion + ($j['hoursToGo'] * 3600);
 				$previousCompletion = $complete;
 				
 				if ($complete > strtotime($j['due']))
