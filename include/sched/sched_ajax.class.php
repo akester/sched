@@ -85,6 +85,24 @@
 					echo 'Job move OK.';
 					break;
 					
+					case 'editJobExec':
+						$this->dbObj->connect();
+						$jobId = $post['jobId'];
+						$machine = $post['machine'];
+						$totalHours = $post['hours'];
+						$hoursToGo = $post['hoursToGo'];
+						$partNo = $post['partNo'];
+						$material = $post['material'];
+						$qtyRemain = $post['qtyRemain'];
+						$due = $post['due'];
+					
+						$query = "UPDATE `sched_jobs` SET machine = '$machine',
+						hours = $totalHours, partNo = '$partNo', material = '$material'
+						, qtyRemain = $qtyRemain, due = '$due', hoursToGo = $hoursToGo WHERE `jobId` = '$jobId'";
+						$this->dbObj->query($query);
+						echo 'Job eidted sucsessfully';
+						break;
+					
 				default:
 					http_response_code(400);
 					die('Invalid.');

@@ -178,6 +178,44 @@ EOT;
 								Move to End</a></td>';
 					break;
 					
+				case 'edit':
+					$this->dbObj->connect();
+					$result = $this->dbObj->query('SELECT * FROM `sched_jobs` WHERE `jobId`
+							= \''.$get['j'].'\'');
+					$job = $result->fetch_assoc();
+					
+					echo '
+					<script src="js/sched/sched_jobEditSubmit.js" type="text/javascript"></script>
+					<script src="js/sched/sched_jobFormValidation.js" type="text/javascript"></script>
+					<form action="?p=newJobExec" method="post" name="jobForm" id="jobForm"
+							onsubmit="return sched_jobEditSubmit();">
+					<table>
+						<tr><td>Job ID:</td><td>
+							<input type="text" name="jobId" value="'.$job['jobId'].'" readonly="readonly"/></td></tr>
+						<tr><td>Machine:</td><td><select name="machine">';
+					foreach ($this->getMachines() as $m) {
+						if ($m == $job['machine'])
+							echo '<option name="'.$m.'" selected="selected">'.$m.'</option>';
+						else
+							echo '<option name="'.$m.'">'.$m.'</option>';
+					}
+					echo '
+						</select></td></tr>
+						<tr><td>Total Hours:</td>
+						<td><input type="text" name="hours" value="'.$job['hours'].'"/></td></tr>
+						<tr><td>Hours Remain:</td>
+						<td><input type="text" name="hoursToGo" value="'.$job['hoursToGo'].'"/></td></tr>
+						<tr><td>Part Number:</td>
+						<td><input type="text" name="partNo" value="'.$job['partNo'].'"/></td></tr>
+						<tr><td>Material:</td>
+						<td><input type="text" name="material" value="'.$job['material'].'"/></td></tr>
+						<tr><td>Qty Remain:</td>
+						<td><input type="text" name="qtyRemain" value="'.$job['qtyRemain'].'"/></td></tr>
+						<tr><td>Due Date:</td>
+						<td><input id="date" type="text" name="due" value="'.$job['due'].'"/></td></tr>
+						<tr><td></td><td><input type="submit" value="Submit Job" /></td></tr>';
+					break;
+					
 				default:
 					echo <<<EOT
 					<h1>Not Found</h1>
