@@ -7,7 +7,8 @@
 		function __construct(){
 			$this->dbObj = new sched_mysql();
 		}
-		private function getMachines() {
+		
+		protected function getMachines() {
 			$this->dbObj->connect();
 			$result = $this->dbObj->query('SELECT * FROM `sched_machines` WHERE 1 ORDER BY `class` ASC');
 			if (!$result)
