@@ -93,6 +93,36 @@ EOT;
 						
 EOT;
 					break;
+				case 'machine':
+					$m = $get['m'];
+					$mObj = new sched_machine($m);
+					$jobs = $mObj->getJobs();
+					echo '<h1>'.$m.'</h1>';
+					echo <<<EOT
+					<table>
+						<tr><th>Pos</th><th>Job No</th><th>Part No.</th>
+						<th>Hours Remain</th><th>Qty Remain</th>
+						<th>Material</th><th>Due</th><th>Est. Complete</th></tr>
+EOT;
+					$realPos = 0;
+					$lastFinish = time();
+					foreach ($jobs as $j) {
+						echo '<tr>';
+						$realPos += 1;
+						$finish = $lastFinish + ($j['hoursToGo'] * 3600);
+						$lastFinish = $finish;
+						
+						echo '<td>'.$realPos.'</td>';
+						echo '<td>'.$j['jobId'].'</td>';
+						echo '<td>'.$j['partNo'].'</td>';
+						echo '<td>'.$j['hoursToGo'].'</td>';
+						echo '<td>'.$j['qtyRemain'].'</td>';
+						echo '<td>'.$j['material'].'</td>';
+						echo '<td>'.$j['due'].'</td>';
+						echo '<td>'.date('m/d/Y H:00', $finish).'</td>';
+						echo '</tr>';
+					}
+					break;
 
 					
 				default:
