@@ -3,13 +3,14 @@ body {
 }
 
 table {
-    margin: 0px auto;
+    margin: 3px auto;
     border: 2px solid;
     border-collapse: collapse;
 }
 
-td, tr {
+td, tr, th {
     border: 1px solid;
+    padding: 5px;
 }
 
 td.machineColumn {
@@ -35,5 +36,15 @@ tr.heading {
     background-color: #00FF00;
 }
 .jobBox.warn {
+    background-color: #FFFF00;
+}
+
+.jobRow {
+}
+
+.jobRow.ok {
+    background-color: #00FF00;
+}
+.jobRow.warn {
     background-color: #FFFF00;
 }
