@@ -54,6 +54,37 @@
 					echo 'Job added sucsessfully';
 					break;
 					
+				case 'moveJobExec':
+					$this->dbObj->connect();
+					$jobId = $post['jobId'];
+					$target = $post['target'];
+					$machine = $post['machine'];
+					
+					$jobs = $this->dbObj->query('SELECT * FROM `sched_jobs`
+							 WHERE `machine` = \''.$machine.'\' ORDER BY `pos` ASC');
+					$reached = false;
+					$targetPos = -1;
+					while ($j = $jobs->fetch_assoc()) {
+						if ($j['jobId'] == $target) {
+							/* We've reached the job we want to move ahead of */
+							$targetPos = $j['pos'];
+							$reached = true;
+						}
+						if ($target == 'end') {
+							$targetPos = $j['pos'] + 1;
+						}
+						if ($reached == true) {
+							$this->dbObj->query('UPDATE`sched_jobs` SET `pos` =
+									'.($j['pos'] + 1).' WHERE `jobId` = \''.$j['jobId'].'\'');
+						}
+					}
+					if ($targetPos >= 0)
+						$this->dbObj->query('UPDATE`sched_jobs` SET `pos` =
+										'.$targetPos.' WHERE `jobId` = \''.$jobId.'\'');
+					
+					echo 'Job move OK.';
+					break;
+					
 				default:
 					http_response_code(400);
 					die('Invalid.');

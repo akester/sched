@@ -102,16 +102,22 @@ EOT;
 					<table>
 						<tr><th>Pos</th><th>Job No</th><th>Part No.</th>
 						<th>Hours Remain</th><th>Qty Remain</th>
-						<th>Material</th><th>Due</th><th>Est. Complete</th></tr>
+						<th>Material</th><th>Due</th><th>Est. Complete</th>
+						<th>Move</th><th>Edit</th></tr>
 EOT;
 					$realPos = 0;
 					$lastFinish = time();
 					foreach ($jobs as $j) {
-						echo '<tr>';
 						$realPos += 1;
 						$finish = $lastFinish + ($j['hoursToGo'] * 3600);
 						$lastFinish = $finish;
 						
+						if ($finish > strtotime($j['due']))
+							$status = 'warn';
+						else
+							$status = 'ok';
+						
+						echo '<tr class="jobRow '.$status.'">';
 						echo '<td>'.$realPos.'</td>';
 						echo '<td>'.$j['jobId'].'</td>';
 						echo '<td>'.$j['partNo'].'</td>';
@@ -120,10 +126,57 @@ EOT;
 						echo '<td>'.$j['material'].'</td>';
 						echo '<td>'.$j['due'].'</td>';
 						echo '<td>'.date('m/d/Y H:00', $finish).'</td>';
+						echo '<td><a href="?p=move&m='.$m.'&j='.$j['jobId'].'">Move</a></td>';
+						echo '<td><a href="?p=edit&m='.$m.'&j='.$j['jobId'].'">Edit</a></td>';
 						echo '</tr>';
 					}
 					break;
-
+					
+				case 'move':
+					$m = $get['m'];
+					$mObj = new sched_machine($m);
+					$jobs = $mObj->getJobs();
+					echo '<h1>'.$m.'</h1>';
+					echo <<<EOT
+					<script src="js/sched/sched_moveJob.js" type="text/javascript"></script>
+					<table>
+						<tr><th>Pos</th><th>Job No</th><th>Part No.</th>
+						<th>Hours Remain</th><th>Qty Remain</th>
+						<th>Material</th><th>Due</th><th>Est. Complete</th>
+						<th>Move</th></tr>
+EOT;
+					$realPos = 0;
+					$lastFinish = time();
+					foreach ($jobs as $j) {
+						if ($j['jobId'] == $get['j'])
+							echo '<tr style="background-color: #DDDDDD;">';
+						else
+							echo '<tr>';
+						$realPos += 1;
+						$finish = $lastFinish + ($j['hoursToGo'] * 3600);
+						$lastFinish = $finish;
+					
+						echo '<td>'.$realPos.'</td>';
+						echo '<td>'.$j['jobId'].'</td>';
+						echo '<td>'.$j['partNo'].'</td>';
+						echo '<td>'.$j['hoursToGo'].'</td>';
+						echo '<td>'.$j['qtyRemain'].'</td>';
+						echo '<td>'.$j['material'].'</td>';
+						echo '<td>'.$j['due'].'</td>';
+						echo '<td>'.date('m/d/Y H:00', $finish).'</td>';
+						echo '<td><a onclick="return sched_moveJob(\''
+								.$j['jobId'].'\', \''.$get['j'].'\', \''.$j['machine']
+								.'\')" href="?p=move&j='.$j['jobId'].'">
+								Move Ahead</a></td>';
+						echo '</tr>';
+					}
+					echo '<tr><td></td><td></td><td></td><td></td><td></td><td></td>
+							<td></td><td></td>';
+					echo '<td><a onclick="return sched_moveJob(\''
+							.'end\', \''.$get['j'].'\', \''.$m
+							.'\')" href="?p=move&j='.$j['jobId'].'">
+								Move to End</a></td>';
+					break;
 					
 				default:
 					echo <<<EOT
