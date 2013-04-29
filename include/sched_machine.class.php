@@ -15,8 +15,17 @@ class sched_machine extends sched_main {
 		$result = $this->db->query('SELECT * FROM `sched_jobs` WHERE `machine` 
 				= \''.$this->machine.'\' AND `hoursToGo` > 0 ORDER BY `pos` ASC');
 		$out = array();
+		$complete = time();
 		while ($job = $result->fetch_assoc()){
-			$out[] = $job;
+			$complete += $job['hoursToGo'] * 3600;
+			$out[$job['jobId']] = $job;
+			
+			if ($complete > strtotime($job['due']))
+				$out[$job['jobId']]['status'] = 'warn';
+			else
+				$out[$job['jobId']]['status'] = 'ok';
+			
+			$out[$job['jobId']]['complete'] = date('Y-m-d', $complete);
 		}
 		return $out;
 	}
