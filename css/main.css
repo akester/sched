@@ -1,0 +1,50 @@
+body {
+    font-family: sans-serif;
+}
+
+table {
+    margin: 3px auto;
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+td, tr, th {
+    border: 1px solid;
+    padding: 5px;
+}
+
+td.machineColumn {
+    width: 100px;
+}
+
+td.timeColumn {
+    width: 1000px;
+}
+
+tr.heading {
+    background-color: #CCCCCC;
+    font-weight: bold;
+}
+
+.jobBox {
+    border: 1px solid;
+    position: static;
+    float: left;
+}
+
+.jobBox.ok {
+    background-color: #00FF00;
+}
+.jobBox.warn {
+    background-color: #FFFF00;
+}
+
+.jobRow {
+}
+
+.jobRow.ok {
+    background-color: #00FF00;
+}
+.jobRow.warn {
+    background-color: #FFFF00;
+}
