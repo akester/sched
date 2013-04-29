@@ -26,10 +26,14 @@
 		public function query($query) {
 			$result = $this->db->query($query);
 			if ($this->db->errno) {
-				http_response_code(500);
+				header('HTTP/1.0 500 Internal Server Error');
 				die($this->db->error);
 			}
 			return $result;
+		}
+		
+		public function sanitize($val) {
+			return $this->db->real_escape_string($val);
 		}
 	}
 ?>
