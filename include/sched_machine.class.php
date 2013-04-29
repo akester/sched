@@ -20,5 +20,12 @@ class sched_machine extends sched_main {
 		}
 		return $out;
 	}
+	
+	function getLastJobPos() {
+		$result = $this->db->query('SELECT * FROM `sched_jobs` WHERE `machine`
+				= \''.$this->machine.'\' AND `hoursToGo` > 0 ORDER BY `pos` DESC');
+		$job = $result->fetch_assoc();
+		return $job['pos'];
+	}
 }
 ?>

@@ -25,7 +25,7 @@
 	<p>
 		<a href="?s=1">Today</a> | <a href="?s=7">This Week</a> | 
 		<a href="?s=30">This Month</a> | 
-		<a href="?p=newJob">Create a new job</a>
+		<a href="newJob.php">Create a new job</a>
 	</p>
 	<table id="gridTable"><tr><td>Loading...</td></tr></table>
 	</body>
