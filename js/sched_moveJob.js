@@ -1,7 +1,7 @@
 function sched_moveJob(m, j) {
 	$.getJSON('ajax/getMachineJobs.php', {
         version: '1',
-        m: machine
+        m: m
     }, function(data) {
     	var tblData = "<tr>";
     	tblData += "<th>Pos</th>";
@@ -11,11 +11,16 @@ function sched_moveJob(m, j) {
     	tblData += "<th>TH</th>";
     	tblData += "<th>HTG</th>";
     	tblData += "<th>Due</th>";
+    	tblData += "<th>Est. Complete</th>";
     	tblData += "<th>Move</th>";
     	tblData += "</tr>";
     	var pos = 1;
     	$.each(data, function(job, data){
-    		tblData += '<tr class="jobRow ' + data.status + '">';
+    		if (data.jobId == j) {
+    			tblData += '<tr style="background-color: #CCCCCC;">';
+    		} else {
+    			tblData += '<tr class="jobRow ' + data.status + '">';
+    		}
     		tblData += '<td>' + pos + '</td>';
     		tblData += '<td>' + data.jobId + '</td>';
     		tblData += '<td>' + data.partNo + '</td>';
@@ -30,6 +35,10 @@ function sched_moveJob(m, j) {
     		tblData += '</tr>';
     		pos += 1;
     	});
+    	tblData += '<tr><td></td><td></td><td></td><td></td><td></td><td></td>\
+    		<td></td><td></td>';
+    	tblData += '<td><a onclick="return sched_moveJobSubmit(\'' 
+			+ j + '\', \'end\', \''+ m + '\');" href="">Move to End</a></td>';
     	$('#jobTable').replaceWith(tblData);
     })
     .error(function() {

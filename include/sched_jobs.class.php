@@ -66,7 +66,7 @@ class sched_jobs extends sched_main {
 	}
 	
 	function moveJob ($jobId, $target, $machine) {
-		$jobs = $this->dbObj->query('SELECT * FROM `sched_jobs`
+		$jobs = $this->db->query('SELECT * FROM `sched_jobs`
 			 	WHERE `machine` = \''.$machine.'\' ORDER BY `pos` ASC');
 		$reached = false;
 		$targetPos = -1;
@@ -80,13 +80,14 @@ class sched_jobs extends sched_main {
 				$targetPos = $j['pos'] + 1;
 			}
 			if ($reached == true) {
-				$this->dbObj->query('UPDATE`sched_jobs` SET `pos` =
+				$this->db->query('UPDATE`sched_jobs` SET `pos` =
 						'.($j['pos'] + 1).' WHERE `jobId` = \''.$j['jobId'].'\'');
 			}
 		}
-		if ($targetPos >= 0)
-			$this->dbObj->query('UPDATE`sched_jobs` SET `pos` =
+		if ($targetPos >= 0) {
+			$this->db->query('UPDATE`sched_jobs` SET `pos` =
 							'.$targetPos.' WHERE `jobId` = \''.$jobId.'\'');
+		}
 		
 		echo 'Job move OK.';
 	}

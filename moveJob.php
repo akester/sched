@@ -13,11 +13,12 @@
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.2.custom.css" />
 		<script src="js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
 		<script src="js/sched_moveJob.js" type="text/javascript"></script>
+		<script src="js/sched_moveJobSubmit.js" type="text/javascript"></script>
 		<script src="js/sched_parseGetData.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var get = sched_parseGetData();
-				sched_getMachineJobs(get['m'], $get['j']);
+				sched_moveJob(get['m'], get['j']);
 			});
 		</script>
 	</head>
