@@ -11,6 +11,7 @@ function sched_getMachineJobs(machine) {
     		tblData += '<td>' + data.jobId + '</td>';
     		tblData += '<td>' + data.partNo + '</td>';
     		tblData += '<td>' + data.qtyRemain + '</td>';
+    		tblData += '<td>' + data.hours + '</td>';
     		tblData += '<td>' + data.hoursToGo + '</td>';
     		tblData += '<td>' + data.due + '</td>';
     		tblData += '<td>' + data.complete + '</td>';
