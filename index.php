@@ -27,6 +27,7 @@
 		<a href="?s=30">This Month</a> | 
 		<a href="newJob.php">Create a new job</a>
 	</p>
+	<h1>Wescon Plastics - Machine Schedule</h1>
 	<table id="gridTable"><tr><td>Loading...</td></tr></table>
 	</body>
 </html>
