@@ -6,7 +6,7 @@ function sched_grid(scale) {
     	var tblData = "<tr><th>Machine</th><th>Time</th></tr>";
     	$.each(data, function(machine, grid){
     		tblData += '<tr>';
-    		tblData += '<td>' + machine + '</td>';
+    		tblData += '<td><a href="viewMachine.php?m=' + machine + '">' + machine + '</td>';
     		tblData += '<td class="timeColumn">';
     		$.each(grid, function(key, value){
     			tblData += '<span class="jobBox ' + value.status + '" style="width: ' + value.pct + '%;">';

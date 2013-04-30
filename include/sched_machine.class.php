@@ -36,5 +36,12 @@ class sched_machine extends sched_main {
 		$job = $result->fetch_assoc();
 		return $job['pos'];
 	}
+
+	function getJobById($jobid){
+		$result = $this->db->query('SELECT * FROM `sched_jobs` WHERE `jobId` =
+			\''.$jobId.'\'');
+		$job = $result->fetch_assoc();
+		return $job;
+	}
 }
 ?>
