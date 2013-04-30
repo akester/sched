@@ -27,7 +27,6 @@ tr.heading {
 }
 
 .jobBox {
-    border: 1px solid;
     position: static;
     float: left;
 }

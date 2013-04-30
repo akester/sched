@@ -51,9 +51,9 @@ class sched_grid extends sched_main {
 				$status = 'ok';
 			
 			if ($pct + $totalPct > 100)
-				$pct = 99 - $totalPct;
+				$pct = 100 - $totalPct;
 			
-			if ($totalPct < 99) {
+			if ($totalPct < 100) {
 				$out[$job['jobId']]['pct'] = $pct;
 				$out[$job['jobId']]['status'] = $status;
 			$totalPct += $pct;
