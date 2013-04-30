@@ -40,7 +40,10 @@
 						<?php 
 							$sched = new sched_main();
 							foreach ($sched->getMachines() as $m) {
-								echo '<option name='.$m.'>'.$m.'</option>';
+								if ($m == $_GET['m'])
+									echo '<option name='.$m.' selected="selected">'.$m.'</option>';
+								else
+									echo '<option name='.$m.'>'.$m.'</option>';
 							}
 						?>
 						</select></td>
