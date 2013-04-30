@@ -3,7 +3,16 @@ function sched_getMachineJobs(machine) {
         version: '1',
         m: machine
     }, function(data) {
-    	var tblData = "<tr><th>Machine</th><th>Time</th></tr>";
+    	var tblData = "<tr>";
+    	tblData += "<th>Pos</th>";
+    	tblData += "<th>Job ID</th>";
+    	tblData += "<th>Part No</th>";
+    	tblData += "<th>Qty Rem</th>";
+    	tblData += "<th>TH</th>";
+    	tblData += "<th>HTG</th>";
+    	tblData += "<th>Due</th>";
+    	tblData += "<th>Est. Complete</th>";
+    	tblData += "</tr>";
     	var pos = 1;
     	$.each(data, function(job, data){
     		tblData += '<tr class="jobRow ' + data.status + '">';
@@ -11,8 +20,8 @@ function sched_getMachineJobs(machine) {
     		tblData += '<td>' + data.jobId + '</td>';
     		tblData += '<td>' + data.partNo + '</td>';
     		tblData += '<td>' + data.qtyRemain + '</td>';
-    		tblData += '<td>' + data.hours + '</td>';
-    		tblData += '<td>' + data.hoursToGo + '</td>';
+    		tblData += '<td>' + data.hours + ' h</td>';
+    		tblData += '<td>' + data.hoursToGo + ' h</td>';
     		tblData += '<td>' + data.due + '</td>';
     		tblData += '<td>' + data.complete + '</td>';
     		tblData += '</tr>';
