@@ -27,6 +27,7 @@
 		<a href="index.php?s=30">This Month</a> | 
 		<a href="newJob.php?m=<?php echo $_GET['m'];?>">Create a new job</a>
 	</p>
+	<h1><?php echo $_GET['m'];?></h1>
 	<table id="jobTable"><tr><td>Loading...</td></tr></table>
 	</body>
 </html>
