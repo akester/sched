@@ -1,4 +1,4 @@
-function sched_jobFormSubmit() {
+function sched_jobEditFormSubmit() {
 	var valid = sched_validateJobForm();
 	if (valid != true) {
 		return false;
@@ -10,11 +10,10 @@ function sched_jobFormSubmit() {
            url: url,
            data: $("#jobForm").serialize(),
            success: function(data) {
-               alert(data);
+        	   window.location = "viewMachine.php?m=" + data;
            },
            error: function(xhr, status, error) {
         	    alert("An error occured: " + xhr.responseText);
-        	    /* FIXME: stop clearing of form when there was an error */
         	 }
          });
     

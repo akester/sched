@@ -7,7 +7,6 @@
 
 	$m = new sched_machine();
 	$job = $m->getJobById($_GET['j']);
-	echo $job;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -18,7 +17,7 @@
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.2.custom.css" />
 		<script src="js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
-		<script src="js/sched_jobFormSubmit.js" type="text/javascript"></script>
+		<script src="js/sched_jobEditFormSubmit.js" type="text/javascript"></script>
 		<script src="js/sched_jobFormValidation.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(function(){
@@ -37,7 +36,8 @@
 		<table>
 				<tr>
 					<td>Job ID:</td>
-					<td><input type="text" name="jobId" /></td>
+					<td><input type="text" name="jobId" readonly="readonly"
+							value="<?php echo $job['jobId'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Machine:</td>
@@ -45,34 +45,43 @@
 						<?php 
 							$sched = new sched_main();
 							foreach ($sched->getMachines() as $m) {
-								echo '<option name='.$m.'>'.$m.'</option>';
+								if ($m == $job['machine'])
+									echo '<option name='.$m.' selected="selected">'.$m.'</option>';
+								else
+									echo '<option name='.$m.'>'.$m.'</option>';
 							}
 						?>
 						</select></td>
 				</tr>
 				<tr>
 					<td>Total Hours:</td>
-					<td><input type="text" name="hours" /></td>
+					<td><input type="text" name="hours" 
+						value="<?php echo $job['hours'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Hours Remain:</td>
-					<td><input type="text" name="hoursToGo" /></td>
+					<td><input type="text" name="hoursToGo" 
+						value="<?php echo $job['hoursToGo'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Part Number:</td>
-					<td><input type="text" name="partNo"></td>
+					<td><input type="text" name="partNo"
+						value="<?php echo $job['partNo'];?>"></td>
 				</tr>
 				<tr>
 					<td>Material:</td>
-					<td><input type="text" name="material" /></td>
+					<td><input type="text" name="material" 
+						value="<?php echo $job['material'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Qty Remain:</td>
-					<td><input type="text" name="qtyRemain" /></td>
+					<td><input type="text" name="qtyRemain" 
+						value="<?php echo $job['qtyRemain'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Due Date:</td>
-					<td><input id="date" type="text" name="due" /></td>
+					<td><input id="date" type="text" name="due" 
+						value="<?php echo $job['due'];?>"/></td>
 				</tr>
 				<tr>
 					<td></td>
