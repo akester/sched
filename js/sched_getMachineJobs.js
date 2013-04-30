@@ -12,6 +12,7 @@ function sched_getMachineJobs(machine) {
     	tblData += "<th>HTG</th>";
     	tblData += "<th>Due</th>";
     	tblData += "<th>Est. Complete</th>";
+    	tblData += "<th>Edit</th>";
     	tblData += "</tr>";
     	var pos = 1;
     	$.each(data, function(job, data){
@@ -24,6 +25,7 @@ function sched_getMachineJobs(machine) {
     		tblData += '<td>' + data.hoursToGo + ' h</td>';
     		tblData += '<td>' + data.due + '</td>';
     		tblData += '<td>' + data.complete + '</td>';
+    		tblData += '<td><a href="editJob.php?j=' + data.jobId + '">Edit</a></td>';
     		tblData += '</tr>';
     		pos += 1;
     	});

@@ -43,7 +43,7 @@ class sched_jobs extends sched_main {
 		$this->validate(intval($hoursToGo), 'integer');
 		
 		$result = $this->db->query('SELECT `machine` FROM `sched_jobs`
-				WHERE `jobId` = \''.$jobid.'\'');
+				WHERE `jobId` = \''.$jobId.'\'');
 		$row = $result->fetch_assoc();
 		$oldMachine = $row['machine'];
 		if ($machine != $oldMachine) {
