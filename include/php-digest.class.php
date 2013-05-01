@@ -88,7 +88,7 @@ class phpAuth {
      * Text that is echoed if the login fails, but fails to redirect.
      * @var string
      */
-    public $fail_text = '';
+    public $fail_text = 'You must login to see this page.';
 
     /**
      * Controls if the user is redirected after logging out.
