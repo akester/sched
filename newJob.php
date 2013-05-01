@@ -30,6 +30,7 @@
 		<a href="index.php?s=30">This Month</a> | 
 		<a href="newJob.php">Create a new job</a>
 	</p>
+	<h1>Create New Job</h1>
 	<form action="#" method="post" name="jobForm" id="jobForm"
 				onsubmit="return sched_jobFormSubmit();">
 		<table>
