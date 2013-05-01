@@ -18,6 +18,9 @@
 		<script type="text/javascript">
 			$(function(){
 				$( "#date" ).datepicker({ dateFormat: "yy-mm-dd" });
+				$(document).ready(function(){
+					$('[name=jobId]').focus();
+				});
 			});
 		</script>
 	</head>
