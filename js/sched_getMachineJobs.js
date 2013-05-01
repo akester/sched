@@ -7,6 +7,7 @@ function sched_getMachineJobs(machine) {
     	tblData += "<th>Pos</th>";
     	tblData += "<th>Job ID</th>";
     	tblData += "<th>Part No</th>";
+    	tblData += "<th>Material</th>";
     	tblData += "<th>Qty Rem</th>";
     	tblData += "<th>TH</th>";
     	tblData += "<th>HTG</th>";
@@ -21,6 +22,7 @@ function sched_getMachineJobs(machine) {
     		tblData += '<td>' + pos + '</td>';
     		tblData += '<td>' + data.jobId + '</td>';
     		tblData += '<td>' + data.partNo + '</td>';
+    		tblData += '<td>' + data.material + '</td>';
     		tblData += '<td>' + data.qtyRemain + '</td>';
     		tblData += '<td>' + data.hours + ' h</td>';
     		tblData += '<td>' + data.hoursToGo + ' h</td>';
