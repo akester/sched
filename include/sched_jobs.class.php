@@ -27,7 +27,7 @@ class sched_jobs extends sched_main {
 				'$class', $hours, '$partNo', '$material', $qtyRemain, '$due',
 				$pos, $hoursToGo)");
 		
-		return 'Job added sucessfully';
+		return 'Job added successfully';
 	}
 	
 	function editJob($jobId, $machine, $class, $hours, $partNo, $material,
@@ -89,7 +89,7 @@ class sched_jobs extends sched_main {
 							'.$targetPos.' WHERE `jobId` = \''.$jobId.'\'');
 		}
 		
-		echo 'Job move OK.';
+		echo 'Job moved successfully.';
 	}
 }
 
