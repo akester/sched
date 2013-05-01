@@ -7,7 +7,7 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Machine Scheduling</title>
+		<title>Machine Scheduling | Move Job</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.2.custom.css" />

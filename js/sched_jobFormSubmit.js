@@ -1,8 +1,9 @@
 function sched_jobFormSubmit() {
-	var valid = sched_validateJobForm();
+	//FIXME
+	/*var valid = sched_validateJobForm();
 	if (valid != true) {
 		return false;
-	}
+	}*/
     var url = "ajax/createNewJob.php";
 
     $.ajax({

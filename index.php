@@ -17,6 +17,9 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var get = sched_parseGetData();
+				if (get['s'] == '' || get['s'] == null) {
+					get['s'] = 1;
+				}
 				sched_grid(get['s']);
 			});
 		</script>

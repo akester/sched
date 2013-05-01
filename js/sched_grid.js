@@ -12,7 +12,7 @@ function sched_grid(scale) {
 		dateBox['number'] = Math.floor(scale / 7);
 		dateBox['unit'] = 'w';
 	}
-	var pct = Math.floor(100 / dateBox['number']);
+	var pct = Math.floor(99.9 / dateBox['number']);
 	$.getJSON('ajax/getGridData.php', {
         version: '1',
         s: scale

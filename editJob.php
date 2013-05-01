@@ -31,7 +31,7 @@
 		<a href="index.php?s=30">This Month</a> | 
 		<a href="newJob.php">Create a new job</a>
 	</p>
-	<form action="#" method="post" name="jobForm" id="jobForm"
+	<form action="#" method="post" id="jobForm"
 				onsubmit="return sched_jobEditFormSubmit();">
 		<table>
 				<tr>
@@ -46,9 +46,9 @@
 							$sched = new sched_main();
 							foreach ($sched->getMachines() as $m) {
 								if ($m == $job['machine'])
-									echo '<option name='.$m.' selected="selected">'.$m.'</option>';
+									echo '<option selected="selected">'.$m.'</option>';
 								else
-									echo '<option name='.$m.'>'.$m.'</option>';
+									echo '<option>'.$m.'</option>';
 							}
 						?>
 						</select></td>
@@ -66,7 +66,7 @@
 				<tr>
 					<td>Part Number:</td>
 					<td><input type="text" name="partNo"
-						value="<?php echo $job['partNo'];?>"></td>
+						value="<?php echo $job['partNo'];?>"/></td>
 				</tr>
 				<tr>
 					<td>Material:</td>
