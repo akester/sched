@@ -21,6 +21,7 @@ function sched_jobFormSubmit() {
     
     /* Clear the form */
     $('[name=jobForm]')[0].reset();
+    $('[name=jobId]').focus();
 
     return false;
 }
