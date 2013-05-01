@@ -12,7 +12,7 @@ function sched_getMachineJobs(machine) {
     	tblData += "<th>TH</th>";
     	tblData += "<th>HTG</th>";
     	tblData += "<th>Due</th>";
-    	tblData += "<th>Est. Complete</th>";
+    	tblData += "<th>Complete</th>";
     	tblData += "<th>Edit</th>";
     	tblData += "<th>Move</th>";
     	tblData += "</tr>";
