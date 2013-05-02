@@ -30,6 +30,7 @@ tr.heading {
 	border-right: 1px solid;
     position: static;
     float: left;
+    white-space: nowrap;
 }
 
 .jobBox.ok {

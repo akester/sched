@@ -56,6 +56,10 @@ class sched_grid extends sched_main {
 			if ($pct > 0) {
 				$out[$job['jobId']]['pct'] = $pct;
 				$out[$job['jobId']]['status'] = $status;
+				$out[$job['jobId']]['partNo'] = $job['partNo'];
+				$out[$job['jobId']]['material'] = $job['material'];
+				$out[$job['jobId']]['hoursToGo'] = $job['hoursToGo'];
+				$out[$job['jobId']]['due'] = $job['due'];
 			$totalPct += $pct;
 			}
 		}

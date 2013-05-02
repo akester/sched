@@ -33,7 +33,7 @@ function sched_grid(scale) {
     		tblData += '<td class="timeColumn">';
     		$.each(grid, function(key, value){
     			tblData += '<span class="jobBox ' + value.status + '" style="width: ' + value.pct + '%;">';
-    			tblData += key + '</span>';
+    			tblData += value.partNo + ' (' + value.hoursToGo + ' h, ' + value.due + ')' + '</span>';
     		});
     	});
     	$('#gridTable').replaceWith(tblData);
